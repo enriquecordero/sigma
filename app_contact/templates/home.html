@@ -1,0 +1,73 @@
+
+   
+   {%  extends 'base.html' %}
+
+   {% block content %}
+   
+   
+   <h1>SIGMA</h1>
+
+
+
+
+
+
+
+
+    <div class="container">
+        <div class="row">
+    
+    
+    <div class="col-md-3  col-md-offset-0">
+      <h2>Grupo  A</h2>
+  
+      {% for a in appsA %}
+        {{ a.mne }}
+        {% endfor %}
+    
+    </div>
+    
+    <div class="col-md-3 col-sm-3 ">
+        <h2>Grupo B </h2>
+
+        {% for b in appsB %}
+        {{ b.mne }}
+        {% endfor %}
+    
+    </div>
+    
+    
+    
+    
+    <div class="col-md-3 ">
+    
+      <h2>Grupo C </h2>
+    
+     
+      {% for c in appsC %}
+      {{ c.mne }}
+      <a class="btn btn-sm btn-info" href="{% url 'app_info' c.id %}"> {{ c.mne }}</a>
+
+      <br>
+      {% endfor %}
+    
+       
+    </div>
+    
+    <div class="col-md-3">
+        <h2>Grupo D </h2>
+  
+
+        {% for d in appsD %}
+        {{ d.mne }}
+        <a class="btn btn-sm btn-info" href="{% url 'app_info' d.id %}"> {{ d.mne }}</a>
+        {% endfor %}
+
+     </div>   
+    
+
+     {% endblock %}
+
+
+
+

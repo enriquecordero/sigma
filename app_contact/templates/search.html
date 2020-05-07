@@ -1,0 +1,46 @@
+
+   {%  extends 'base.html' %}
+
+   {% block content %}
+
+<form action="{% url 'search' %}" method="GET">
+<div class="form-group">
+
+    <div class="col-lg-5">
+        <input type="text" name="search" class="form-control" placeholder="Enter IP , hostname or mne">
+    </div>
+ 
+    <label class="col-lg-2">
+        <button  type="submit" class="btn-btn-danger">Search</button>
+    </label>
+</div>
+
+</form>
+
+
+<table class="table table-sm">
+				<tr>
+                    <th>Mne</th>
+					
+					<th>Hostname</th>
+					<th>IP</th>
+				
+				</tr>
+
+				{% for q in query %}
+					<tr>
+                        <td>{{ q.app.mne }}</td>
+						
+					
+						<td>{{ q.hostname }}</td>
+						<td>{{ q.ip }}</td>
+					
+
+					</tr>
+				{% endfor %}
+
+		
+			</table>
+
+
+            {% endblock %}
