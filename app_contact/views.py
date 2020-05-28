@@ -25,18 +25,17 @@ def app_info(request,pk):
 
 def search(request):
     match = ""
-    if request.method=='GET':
-        
-       search = request.GET['search']
-       
-       if search:
-           match = Server.objects.filter(Q(ip__icontains=search) |
-                                         Q(hostname__icontains=search) |
-                                          Q(app__mne__icontains=search)
+    if request.method=='GET':        
+        search = request.GET.get('search')   
+        print(search)    
+        if search:
+            match = Server.objects.filter( Q(ip__icontains=search)       |
+                                           Q(hostname__icontains=search) |
+                                           Q(app__mne__icontains=search) 
                                           )
-           if match:
+            if match:
                 return render(request , 'search.html',{'query':match})
-           else:
+            else:
                 print("Match not found")
   
 
